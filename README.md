@@ -1,6 +1,3 @@
-Sure, here's a basic README for a lazy.nvim configuration:
-
-```markdown
 # lazy.nvim Configuration
 
 This repository contains my personal lazy.nvim configuration. It is set up to enhance productivity and ease of use.
