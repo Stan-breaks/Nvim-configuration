@@ -6,14 +6,14 @@ local config = function()
 
 	local lspconfig = require("lspconfig")
 
-  local signs = { Error = "❌",Warn = "⚠️",Hint = "💡", Info = "ℹ️" }
+	local signs = { Error = "❌", Warn = "⚠️", Hint = "💡", Info = "ℹ️" }
 
-  for type, icon in pairs(signs) do
+	for type, icon in pairs(signs) do
 		local hl = "DiagnosticSign" .. type
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 	end
 
-  local capabilities = cmp_nvim_lsp.default_capabilities()
+	local capabilities = cmp_nvim_lsp.default_capabilities()
 
 	-- lua
 	lspconfig.lua_ls.setup({
@@ -30,6 +30,27 @@ local config = function()
 					library = {
 						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
 						[vim.fn.stdpath("config") .. "/lua"] = true,
+					},
+				},
+			},
+		},
+	})
+
+	--rust
+	lspconfig.rust_analyzer.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = { "rust" },
+		settings = {
+			rust = {
+				analyzer = {
+					cargo = true,
+					clippy = true,
+				},
+				completion = {
+					workspace = {
+						crates = true,
+						dependencies = true,
 					},
 				},
 			},
@@ -65,7 +86,7 @@ local config = function()
 		on_attach = on_attach,
 		capabilities = capabilities,
 		filetypes = {
-      "typescript",
+			"typescript",
 		},
 		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
 	})
@@ -123,6 +144,7 @@ local config = function()
 	local hadolint = require("efmls-configs.linters.hadolint")
 	local cpplint = require("efmls-configs.linters.cpplint")
 	local clangformat = require("efmls-configs.formatters.clang_format")
+	local rustfmt = require("efmls-configs.formatters.rustfmt")
 
 	-- configure efm server
 	lspconfig.efm.setup({
@@ -144,6 +166,7 @@ local config = function()
 			"css",
 			"c",
 			"cpp",
+			"rust",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -172,6 +195,7 @@ local config = function()
 				css = { prettier_d },
 				c = { clangformat, cpplint },
 				cpp = { clangformat, cpplint },
+				rust = { rustfmt },
 			},
 		},
 	})
@@ -185,7 +209,7 @@ return {
 		"windwp/nvim-autopairs",
 		"williamboman/mason.nvim",
 		"creativenull/efmls-configs-nvim",
-    "hrsh7th/nvim-cmp",
+		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-nvim-lsp",
 	},
