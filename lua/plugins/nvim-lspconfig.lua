@@ -132,6 +132,39 @@ local config = function()
 		},
 	})
 
+	--php
+	lspconfig.intelephense.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = { "php" },
+		settings = {
+			intelephense = {
+				stubs = {
+					"bcmath",
+					"bz2",
+					"calendar",
+					"Core",
+					"curl",
+					"zip",
+					"zlib",
+					"wordpress",
+					"woocommerce",
+					"acf-pro",
+					"wordpress-globals",
+					"wp-cli",
+					"genesis",
+					"polylang",
+				},
+				environment = {
+					includePaths = "/home/your-user/.composer/vendor/php-stubs/", -- this line forces the composer path for the stubs in case inteliphense don't find it...
+				},
+				files = {
+					maxSize = 5000000,
+				},
+			},
+		},
+	})
+
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
 	local flake8 = require("efmls-configs.linters.flake8")
@@ -144,8 +177,7 @@ local config = function()
 	local hadolint = require("efmls-configs.linters.hadolint")
 	local cpplint = require("efmls-configs.linters.cpplint")
 	local clangformat = require("efmls-configs.formatters.clang_format")
-	local rustfmt = require("efmls-configs.formatters.rustfmt")
-
+	local rustfmt = require("efmls-configs.formatters.rustfmt") 
 	-- configure efm server
 	lspconfig.efm.setup({
 		filetypes = {
