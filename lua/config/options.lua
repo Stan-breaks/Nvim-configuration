@@ -39,3 +39,14 @@ opt.mouse:append("a")
 opt.clipboard:append("unnamedplus")
 opt.modifiable = true
 opt.encoding = "UTF-8"
+
+--Obsidian
+opt.conceallevel = 2
+
+--autocmd
+vim.cmd([[
+augroup Markdown
+    autocmd!
+    autocmd FileType markdown lua vim.opt.textwidth = 80
+augroup END
+]])
