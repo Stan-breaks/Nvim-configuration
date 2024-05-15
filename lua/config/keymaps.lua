@@ -34,9 +34,5 @@ vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })
 vim.api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false })
 
 --copilot
-keymap.set("n", "<leader>ce", function()
-	require("copilot").enable()
-end, { desc = "Enable Copilot" })
-keymap.set("n", "<leader>cd", function()
-	require("copilot").disable()
-end, { desc = "Disable Copilot" })
+keymap.set("n", "<leader>ce", ":Copilot enable<CR>")
+keymap.set("n", "<leader>cd", ":Copilot disable<CR>")
