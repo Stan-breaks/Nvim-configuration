@@ -4,5 +4,4 @@ return {
 		-- add any options here
 	},
 	lazy = false,
-
 }

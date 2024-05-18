@@ -1,5 +1,4 @@
 local on_attach = require("util.lsp").on_attach
-
 local config = function()
 	require("neoconf").setup({})
 	local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -177,7 +176,7 @@ local config = function()
 	local hadolint = require("efmls-configs.linters.hadolint")
 	local cpplint = require("efmls-configs.linters.cpplint")
 	local clangformat = require("efmls-configs.formatters.clang_format")
-	local rustfmt = require("efmls-configs.formatters.rustfmt") 
+	local rustfmt = require("efmls-configs.formatters.rustfmt")
 	-- configure efm server
 	lspconfig.efm.setup({
 		filetypes = {
