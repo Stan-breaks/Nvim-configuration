@@ -1,14 +1,24 @@
 local config = function()
 	local theme = require("lualine.themes.nightfox")
 
-  --set bg transparency in all modes
-  if theme.normal.c then theme.normal.c.bg = nil end
-  if theme.insert.c then theme.insert.c.bg = nil end
-  if theme.visual.c then theme.visual.c.bg = nil end
-  if theme.replace.c then theme.replace.c.bg = nil end
-  if theme.command.c then theme.command.c.bg = nil end
-  
-  require("lualine").setup({
+	--set bg transparency in all modes
+	if theme.normal.c then
+		theme.normal.c.bg = nil
+	end
+	if theme.insert.c then
+		theme.insert.c.bg = nil
+	end
+	if theme.visual.c then
+		theme.visual.c.bg = nil
+	end
+	if theme.replace.c then
+		theme.replace.c.bg = nil
+	end
+	if theme.command.c then
+		theme.command.c.bg = nil
+	end
+
+	require("lualine").setup({
 		options = {
 			theme = theme,
 			globalstatus = true,
