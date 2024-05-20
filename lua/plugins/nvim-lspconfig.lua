@@ -155,13 +155,20 @@ local config = function()
 					"polylang",
 				},
 				environment = {
-					includePaths = "/home/your-user/.composer/vendor/php-stubs/", -- this line forces the composer path for the stubs in case inteliphense don't find it...
+					includePaths = "/home/your-user/.composer/vendor/php-stubs/",
 				},
 				files = {
 					maxSize = 5000000,
 				},
 			},
 		},
+	})
+
+	--go
+	lspconfig.gopls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = { "go" },
 	})
 
 	local luacheck = require("efmls-configs.linters.luacheck")
@@ -198,6 +205,7 @@ local config = function()
 			"c",
 			"cpp",
 			"rust",
+      "go",
 		},
 		init_options = {
 			documentFormatting = true,
