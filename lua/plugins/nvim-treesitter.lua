@@ -4,9 +4,7 @@ local config = function()
 		indent = {
 			enable = true,
 		},
-		autotag = {
-			enable = true,
-		},
+
 		event = {
 			"BufReadPre",
 			"BufNewFile",
