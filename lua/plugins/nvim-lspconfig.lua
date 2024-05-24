@@ -167,6 +167,14 @@ local config = function()
 		capabilities = capabilities,
 		on_attach = on_attach,
 		filetypes = { "go" },
+		settings = {
+			gopls = {
+				analyses = {
+					unusedparams = true,
+				},
+				staticcheck = true,
+			},
+		},
 	})
 
 	local luacheck = require("efmls-configs.linters.luacheck")
@@ -182,6 +190,9 @@ local config = function()
 	local cpplint = require("efmls-configs.linters.cpplint")
 	local clangformat = require("efmls-configs.formatters.clang_format")
 	local rustfmt = require("efmls-configs.formatters.rustfmt")
+	local golangci_lint = require("efmls-configs.linters.golangci_lint")
+	local gofumpt = require("efmls-configs.formatters.gofumpt")
+
 	-- configure efm server
 	lspconfig.efm.setup({
 		filetypes = {
@@ -233,6 +244,7 @@ local config = function()
 				c = { clangformat, cpplint },
 				cpp = { clangformat, cpplint },
 				rust = { rustfmt },
+				go = { golangci_lint, gofumpt },
 			},
 		},
 	})
