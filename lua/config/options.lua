@@ -42,23 +42,3 @@ opt.encoding = "UTF-8"
 
 --Obsidian
 opt.conceallevel = 2
-
---autocmd
-
-vim.api.nvim_create_augroup("Markdown", { clear = true })
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "markdown",
-	callback = function()
-		vim.opt_local.textwidth = 80
-	end,
-	group = "Markdown",
-})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = "*.md",
-	callback = function()
-		vim.api.nvim_command("normal! gg4jVGgq")
-	end,
-	group = "Markdown",
-})

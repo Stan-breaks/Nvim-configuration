@@ -12,3 +12,22 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		vim.lsp.buf.format({ name = "efm", async = true })
 	end,
 })
+--markdown autoformatting
+
+vim.api.nvim_create_augroup("Markdown", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt_local.textwidth = 101
+	end,
+	group = "Markdown",
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = "*.md",
+	callback = function()
+		vim.api.nvim_command("normal! gg4jVGgq")
+	end,
+	group = "Markdown",
+})
