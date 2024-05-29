@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = "*.md",
 	callback = function()
-		vim.api.nvim_command("normal! gg4jVGgq")
+		vim.api.nvim_command("normal! gg5jVGgq")
 	end,
 	group = "Markdown",
 })
