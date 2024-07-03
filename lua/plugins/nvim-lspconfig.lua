@@ -65,17 +65,6 @@ local config = function()
 	lspconfig.pyright.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
-		settings = {
-			pyright = {
-				disableOrganizeImports = false,
-				analysis = {
-					useLibraryCodeForTypes = true,
-					autoSearchPaths = true,
-					diagnosticMode = "workspace",
-					autoImportCompletions = true,
-				},
-			},
-		},
 	})
 
 	-- typescript
@@ -84,6 +73,9 @@ local config = function()
 		capabilities = capabilities,
 		filetypes = {
 			"typescript",
+			"typescriptreact",
+			"javascriptreact",
+			"javascript",
 		},
 		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
 	})
@@ -102,7 +94,6 @@ local config = function()
 		filetypes = {
 			"typescriptreact",
 			"javascriptreact",
-			"javascript",
 			"css",
 			"sass",
 			"scss",
@@ -134,32 +125,6 @@ local config = function()
 		capabilities = capabilities,
 		on_attach = on_attach,
 		filetypes = { "php" },
-		settings = {
-			intelephense = {
-				stubs = {
-					"bcmath",
-					"bz2",
-					"calendar",
-					"Core",
-					"curl",
-					"zip",
-					"zlib",
-					"wordpress",
-					"woocommerce",
-					"acf-pro",
-					"wordpress-globals",
-					"wp-cli",
-					"genesis",
-					"polylang",
-				},
-				environment = {
-					includePaths = "/home/your-user/.composer/vendor/php-stubs/",
-				},
-				files = {
-					maxSize = 5000000,
-				},
-			},
-		},
 	})
 
 	--go
@@ -175,6 +140,13 @@ local config = function()
 				staticcheck = true,
 			},
 		},
+	})
+
+	--dart
+	lspconfig.dartls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = { "dart" },
 	})
 
 	local luacheck = require("efmls-configs.linters.luacheck")
@@ -215,6 +187,7 @@ local config = function()
 			"cpp",
 			"rust",
 			"go",
+			"dart",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -245,6 +218,7 @@ local config = function()
 				cpp = { clangformat, cpplint },
 				rust = { rustfmt },
 				go = { golangci_lint, gofumpt },
+				dart = {},
 			},
 		},
 	})
