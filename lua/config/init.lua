@@ -44,6 +44,4 @@ local opts = {
 
 require("lazy").setup("plugins", opts)
 
-require("config.message")
-
 vim.lsp.set_log_level("warn")

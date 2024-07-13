@@ -22,7 +22,6 @@ local config = function()
 			"bash",
 			"lua",
 			"dockerfile",
-			"solidity",
 			"gitignore",
 			"python",
 			"vue",
@@ -31,6 +30,9 @@ local config = function()
 			"markdown_inline",
 			"regex",
 			"jsonc",
+			"vimdoc",
+			"vim",
+			"go",
 		},
 		auto_install = true,
 		highlight = {
