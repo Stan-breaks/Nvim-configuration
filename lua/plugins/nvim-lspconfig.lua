@@ -1,4 +1,7 @@
+---@diagnostic disable: missing-fields
+
 local on_attach = require("util.lsp").on_attach
+
 local config = function()
 	require("neoconf").setup({})
 	local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -72,7 +75,7 @@ local config = function()
 		on_attach = on_attach,
 		capabilities = capabilities,
 		filetypes = {
-			"typescript",
+			"typescrpt",
 			"typescriptreact",
 			"javascriptreact",
 			"javascript",
