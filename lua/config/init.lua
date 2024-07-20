@@ -45,3 +45,4 @@ local opts = {
 require("lazy").setup("plugins", opts)
 
 vim.lsp.set_log_level("warn")
+vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
