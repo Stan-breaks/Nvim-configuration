@@ -69,7 +69,7 @@ local config = function()
     capabilities = capabilities,
     on_attach = on_attach,
     filetypes = {
-      "python"
+      "python",
     }
   })
 
@@ -114,6 +114,7 @@ local config = function()
   lspconfig.dockerls.setup({
     capabilities = capabilities,
     on_attach = on_attach,
+    filetypes = { "docker" }
   })
 
   -- C/C++
