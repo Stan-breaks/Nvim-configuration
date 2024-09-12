@@ -68,10 +68,13 @@ local config = function()
   lspconfig.pyright.setup({
     capabilities = capabilities,
     on_attach = on_attach,
+    filetypes = {
+      "python"
+    }
   })
 
   -- typescript
-  lspconfig.tsserver.setup({
+  lspconfig.ts_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     filetypes = {
@@ -152,6 +155,13 @@ local config = function()
     filetypes = { "dart" },
   })
 
+  --java
+  lspconfig.jdtls.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    filetypes = { "java" },
+  })
+
   local luacheck = require("efmls-configs.linters.luacheck")
   local stylua = require("efmls-configs.formatters.stylua")
   local flake8 = require("efmls-configs.linters.flake8")
@@ -191,6 +201,7 @@ local config = function()
       "rust",
       "go",
       "dart",
+      "java"
     },
     init_options = {
       documentFormatting = true,
@@ -221,7 +232,6 @@ local config = function()
         cpp = { clangformat, cpplint },
         rust = { rustfmt },
         go = { golangci_lint, gofumpt },
-        dart = {},
       },
     },
   })
