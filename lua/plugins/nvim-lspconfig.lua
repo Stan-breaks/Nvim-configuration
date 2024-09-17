@@ -161,6 +161,28 @@ local config = function()
     capabilities = capabilities,
     on_attach = on_attach,
     filetypes = { "java" },
+    settings = {
+      java = {
+        signatureHelp = { enabled = true },
+        maven = {
+          downloadSources = true,
+        },
+        referencesCodeLens = {
+          enabled = true,
+        },
+        references = {
+          includeDecompiledSources = true,
+        },
+        inlayHints = {
+          parameterNames = {
+            enabled = 'all', -- literals, all, none
+          },
+        },
+        format = {
+          enabled = false,
+        },
+      },
+    },
   })
 
   local luacheck = require("efmls-configs.linters.luacheck")
