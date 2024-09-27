@@ -200,6 +200,7 @@ local config = function()
   local rustfmt = require("efmls-configs.formatters.rustfmt")
   local golangci_lint = require("efmls-configs.linters.golangci_lint")
   local gofumpt = require("efmls-configs.formatters.gofumpt")
+  local google_java_format = require("efmls-configs.formatters.google_java_format")
 
   -- configure efm server
   lspconfig.efm.setup({
@@ -255,6 +256,7 @@ local config = function()
         cpp = { clangformat, cpplint },
         rust = { rustfmt },
         go = { golangci_lint, gofumpt },
+        java = { google_java_format }
       },
     },
   })
