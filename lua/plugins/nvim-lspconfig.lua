@@ -149,13 +149,6 @@ local config = function()
     },
   })
 
-  --dart
-  lspconfig.dartls.setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    filetypes = { "dart" },
-  })
-
   --java
   lspconfig.jdtls.setup({
     capabilities = capabilities,
@@ -224,7 +217,6 @@ local config = function()
       "cpp",
       "rust",
       "go",
-      "dart",
       "java"
     },
     init_options = {
