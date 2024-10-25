@@ -1,34 +1,38 @@
 local config = function()
   local alpha = require("alpha")
   local dashboard = require("alpha.themes.dashboard")
+  -- Dramatic Neovim ASCII art
   dashboard.section.header.val = {
-    [[                                ]],
-    [[             ,,,,,,             ]],
-    [[         o#'9MMHb':'-,o,        ]],
-    [[      .oH":HH$' "' ' -*R&o,     ]],
-    [[     dMMM*""'`'      .oM"HM?.   ]],
-    [[   ,MMM'          "HLbd< ?&H\   ]],
-    [[  .:MH ."\          ` MM  MM&b  ]],
-    [[ . "*H    -        &MMMMMMMMMH: ]],
-    [[ .    dboo        MMMMMMMMMMMM. ]],
-    [[ .   dMMMMMMb      *MMMMMMMMMP. ]],
-    [[ .    MMMMMMMP        *MMMMMP . ]],
-    [[      `#MMMMM           MM6P ,  ]],
-    [[  '    `MMMP"           HM*`,   ]],
-    [[   '    :MM             .- ,    ]],
-    [[    '.   `#?..  .       ..'     ]],
-    [[       -.   .         .-        ]],
-    [[         ''-.oo,oo.-''          ]],
-    [[                                ]],
+    [[=================     ===============     ===============   ========  ========]],
+    [[\\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //]],
+    [[||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||]],
+    [[|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||]],
+    [[||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||]],
+    [[|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||]],
+    [[||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .||]],
+    [[|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . ||]],
+    [[||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.||]],
+    [[||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `||]],
+    [[||    `'         || ||         `'    || ||    `'         || ||   | \  / |   ||]],
+    [[||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   ||]],
+    [[||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   ||]],
+    [[||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   ||]],
+    [[||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   ||]],
+    [[||.=='    _-'                                                     `' |  /==.||]],
+    [[=='    _-'                        N E O V I M                         \/   `==]],
+    [[\   _-'                                                                `-_   /]],
+    [[ `''                                                                      ``' ]],
   }
 
+  -- Custom menu buttons with icons
   dashboard.section.buttons.val = {
     dashboard.button("n", "  New file", ":ene <BAR> startinsert <CR>"),
     dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
     dashboard.button("r", "  Recent files", ":Telescope oldfiles<CR>"),
     dashboard.button("g", "  Find text", ":Telescope live_grep<CR>"),
-    dashboard.button("c", "  Config", ":e $MYVIMRC<CR>"),
+    dashboard.button("m", "  Mason", ":Mason<CR>"),
     dashboard.button("l", "  Lazy", ":Lazy<CR>"),
+    dashboard.button("c", "  Config", ":e $MYVIMRC<CR>"),
     dashboard.button("q", "  Quit", ":qa<CR>"),
   }
   -- Custom footer with Lazy plugin count
