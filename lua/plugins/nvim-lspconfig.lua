@@ -177,6 +177,13 @@ local config = function()
       },
     },
   })
+  --sql
+  lspconfig.sqls.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    filetypes = { "sql" }
+  })
+
 
   local luacheck = require("efmls-configs.linters.luacheck")
   local stylua = require("efmls-configs.formatters.stylua")
@@ -194,6 +201,8 @@ local config = function()
   local golangci_lint = require("efmls-configs.linters.golangci_lint")
   local gofumpt = require("efmls-configs.formatters.gofumpt")
   local google_java_format = require("efmls-configs.formatters.google_java_format")
+  local sqlfmt = require("efmls-configs.formatters.sqlfmt")
+  local sqlfluff = require("efml-configs.linters.sqlfluff")
 
   -- configure efm server
   lspconfig.efm.setup({
@@ -217,7 +226,8 @@ local config = function()
       "cpp",
       "rust",
       "go",
-      "java"
+      "java",
+      "sql"
     },
     init_options = {
       documentFormatting = true,
@@ -248,7 +258,8 @@ local config = function()
         cpp = { clangformat, cpplint },
         rust = { rustfmt },
         go = { golangci_lint, gofumpt },
-        java = { google_java_format }
+        java = { google_java_format },
+        sql = { sqlfluff, sqlfmt }
       },
     },
   })
