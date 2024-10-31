@@ -18,7 +18,7 @@ local config = function()
       "rust_analyzer",
       "jsonls",
       "pyright",
-      "tsserver",
+      "ts_ls",
       "bashls",
       "emmet_ls",
       "dockerls",
