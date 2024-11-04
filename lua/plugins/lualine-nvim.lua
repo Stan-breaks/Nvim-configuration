@@ -21,6 +21,7 @@ local config = function()
     options = {
       theme = theme,
       globalstatus = true,
+      section_separators = { left = '', right = '' },
     },
     tabline = {
       lualine_a = { "mode" },
