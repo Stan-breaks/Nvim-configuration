@@ -3,8 +3,8 @@ local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
 --Directory Navigation
-keymap.set("n", "<leader>m", ":NvimTreeFocus<CR>", { noremap = true, silent = true })
-keymap.set("n", "<leader>f", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+-- Oil
+keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
 
 --pane and window Navigations
 keymap.set("n", "<C-h>", "C-w>h", opts)               -- Navigate Left

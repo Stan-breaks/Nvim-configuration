@@ -195,7 +195,7 @@ local config = function()
             port = 5432,
             database = "psql_db",
             username = "stan",
-            password = "------", -- Consider using environment variables for credentials
+            password = "poi098lkj098", -- Consider using environment variables for credentials
           },
           {
             name = "MySQL",
@@ -205,7 +205,7 @@ local config = function()
             port = 3306,
             database = "sql_db",
             username = "stan",
-            password = "-----", -- Consider using environment variables for credentials
+            password = "poi098lkj098", -- Consider using environment variables for credentials
           }
         }
       }
