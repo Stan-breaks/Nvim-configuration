@@ -1,19 +1,19 @@
 local config = function()
-	require("notify").setup({
-		stages = "fade_in_slide_out",
-		timeout = 5000,
-		background_colour = "#000000",
-		icons = {
-			ERROR = "",
-			WARN = "",
-			INFO = "",
-			DEBUG = "",
-			TRACE = "✎",
-		},
-	})
+  require("notify").setup({
+    stages = "fade_in_slide_out",
+    timeout = 2000,
+    background_colour = "#000000",
+    icons = {
+      ERROR = "",
+      WARN = "",
+      INFO = "",
+      DEBUG = "",
+      TRACE = "✎",
+    },
+  })
 end
 
 return {
-	"rcarriga/nvim-notify",
-	config = config,
+  "rcarriga/nvim-notify",
+  config = config,
 }
