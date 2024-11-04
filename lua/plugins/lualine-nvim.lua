@@ -30,7 +30,7 @@ local config = function()
       lualine_c = {
         '%=', --[[ add your center compoentnts here in place of this comment ]]
       },
-      lualine_x = {},
+      lualine_x = { 'diagnostics' },
       lualine_y = { 'filetype', 'progress' },
       lualine_z = {
         { 'location', separator = { right = '' }, left_padding = 2 },
