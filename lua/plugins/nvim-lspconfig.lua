@@ -177,40 +177,6 @@ local config = function()
       },
     },
   })
-  --sql
-
-  lspconfig.sqlls.setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    filetypes = { "sql" },
-    root_dir = lspconfig.util.root_pattern(".git", "*.sql"),
-    settings = {
-      sqlls = {
-        connections = {
-          {
-            name = "PostgreSQL",
-            adapter = "postgresql",
-            driver = 'postgresql',
-            server = "localhost",
-            port = 5432,
-            database = "psql_db",
-            username = "stan",
-            password = "poi098lkj098", -- Consider using environment variables for credentials
-          },
-          {
-            name = "MySQL",
-            adapter = "mysql",
-            driver = 'mysql',
-            server = "127.0.0.1",
-            port = 3306,
-            database = "sql_db",
-            username = "stan",
-            password = "poi098lkj098", -- Consider using environment variables for credentials
-          }
-        }
-      }
-    }
-  })
 
 
   local luacheck = require("efmls-configs.linters.luacheck")
@@ -229,21 +195,6 @@ local config = function()
   local golangci_lint = require("efmls-configs.linters.golangci_lint")
   local gofumpt = require("efmls-configs.formatters.gofumpt")
   local google_java_format = require("efmls-configs.formatters.google_java_format")
-
-  -- Configure efm for SQL formatting and linting
-  local sqlfluff = {
-    prefix = "sqlfluff",
-    formatCommand = "sqlfluff fix --dialect postgres -",
-    formatStdin = true,
-    lintCommand = "sqlfluff lint --dialect postgres -",
-    lintStdin = true,
-    lintFormats = { "%f:%l:%c: %m" },
-  }
-
-  local sqlfmt = {
-    formatCommand = "sqlfmt -",
-    formatStdin = true,
-  }
 
   -- configure efm server
   lspconfig.efm.setup({
@@ -268,7 +219,6 @@ local config = function()
       "rust",
       "go",
       "java",
-      "sql"
     },
     init_options = {
       documentFormatting = true,
@@ -300,7 +250,6 @@ local config = function()
         rust = { rustfmt },
         go = { golangci_lint, gofumpt },
         java = { google_java_format },
-        sql = { sqlfluff, sqlfmt }
       },
     },
   })

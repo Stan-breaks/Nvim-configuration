@@ -26,7 +26,6 @@ local config = function()
       "intelephense",
       "gopls",
       "jdtls",
-      "sqlls",
     },
   })
 
@@ -44,7 +43,6 @@ local config = function()
       "rustfmt",
       "gofumpt",
       "google-java-format",
-      "sqlfmt",
 
       -- Linters
       "luacheck",
@@ -54,7 +52,6 @@ local config = function()
       "hadolint",
       "cpplint",
       "golangci-lint",
-      "sqlfluff",
     },
   })
 end
